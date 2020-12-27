@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Todos</title>
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <h1>Todo list.</h1>
+
+        <form action="/" method="post">
+    		<input type="text" name="content" id="content">
+    		<input type="submit" value="Add Task">
+    	</form>
+
+
+        <ul>
+            {% for task in tasks %}
+               <li>{{ task.content }}</li>
+               <a href="/del/{{task.id}}">delete</a>
+               <a href="/update/{{task.id}}">update</a>
+               <a href="/mark/{{task.id}}">mark as done</a>
+            {% endfor %}
+        </ul>
+
+        <a href="/completed">See completed tasks</a>
+
+    </div>
+{% endblock %}

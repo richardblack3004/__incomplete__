@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Completed Todos</title>
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <h1>Completed Tasks.</h1>
+
+
+        <ul>
+            {% for completed_task in completed_tasks %}
+               <li>{{ completed_task.content }}</li>
+               <a href=/completed/del/{{completed_task.id}}>delete</a>
+            {% endfor %}
+        </ul>
+        <a href="/">Return to home</a>
+    </div>
+{% endblock %}
